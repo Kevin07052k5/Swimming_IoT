@@ -1,0 +1,29 @@
+{
+    "project_name": "Swim-AIoT-TinyML",
+    "target_hardware": {
+        "mcu": "Nordic nRF52840 (ARM Cortex-M4F @ 64MHz)",
+        "flash_limit_kb": 1024,
+        "ram_limit_kb": 256,
+        "arena_budget_kb": 25
+    },
+    "dsp_spec": {
+        "sample_rate_hz": 50,
+        "filter": "Butterworth Lowpass 2nd Order, Fc=10Hz",
+        "normalization": "Z-score 6 channels",
+        "window_size": 128,
+        "window_step": 64
+    },
+    "model_spec": {
+        "architecture": "1D-CNN Autoencoder (Unsupervised)",
+        "quantization": "Full INT8 (Weights and Activations)",
+        "max_flash_kb": 32.4,
+        "max_ram_kb": 18.2,
+        "max_latency_ms": 12.6,
+        "anomaly_metric": "MSE Reconstruction Loss"
+    },
+    "context_files": [
+        "docs/spec.md",
+        "docs/Gemini.md",
+        "docs/model_data.md"
+    ]
+}

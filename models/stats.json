@@ -1,0 +1,11 @@
+{
+    "mean_mse": 0.20073768496513367,
+    "std_mse": 0.062370046973228455,
+    "k_factor": 3.5,
+    "threshold_tau": 0.41903284937143326,
+    "train_samples": 849,
+    "val_samples": 150,
+    "epochs_trained": 30,
+    "final_train_loss": 0.19894418120384216,
+    "final_val_loss": 0.20073768496513367
+}

@@ -1,0 +1,7 @@
+# TinyML Swimming Anomaly Detection System Dependencies
+numpy>=1.22.0,<2.0.0
+scipy>=1.8.0
+tensorflow>=2.10.0
+paho-mqtt>=1.6.1
+matplotlib>=3.5.0
+scikit-learn>=1.0.0

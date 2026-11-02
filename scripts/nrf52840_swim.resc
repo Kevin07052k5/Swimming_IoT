@@ -1,0 +1,20 @@
+# Renode Script: Mô phỏng Thiết bị đeo AIoT Phát hiện Đuối nước
+# Vi điều khiển: Nordic nRF52840 (ARM Cortex-M4F)
+using sysbus
+
+# 1. Khởi tạo máy ảo Cortex-M4F
+mach create "swimming_wearable_node"
+machine LoadPlatformDescription @platforms/cpus/nrf52840.repl
+
+# 2. Định tuyến cổng giao tiếp nối tiếp Serial / UART
+showAnalyzer uart0
+
+# 3. Gán file nhị phân firmware đã biên dịch
+sysbus LoadELF @build/zephyr/zephyr.elf
+
+# 4. Thiết lập điểm ngắt kiểm tra độ trễ suy luận
+sysbus.cpu AddHook `sysbus.cpu GetSymbolAddress "TinyML_Execute_Inference"` "print '>> [BENCHMARK] Bắt đầu thực thi suy luận 1D-CNN INT8...'"
+
+# 5. Khởi động môi trường thời gian thực
+start
+
