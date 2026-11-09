@@ -15,6 +15,10 @@ from enum import Enum
 from pathlib import Path
 from typing import Tuple, Dict, Any, List, Optional
 
+# Đảm bảo KERAS_HOME hợp lệ tránh lỗi quyền sandbox trên Windows
+BASE_DIR = Path(__file__).resolve().parent.parent
+os.environ.setdefault("KERAS_HOME", str(BASE_DIR / ".keras"))
+
 if hasattr(sys.stdout, "reconfigure"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
